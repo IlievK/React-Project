@@ -8,10 +8,10 @@ export default function Navigation() {
         <ul>
           {/*For all users*/}
           <li>
-            <a href="#">Home</a>
+            <a href="/">Home</a>
           </li>
           <li>
-            <a href="#">Catalog</a>
+            <a href="/catalog">Catalog</a>
           </li>
           {/*For loggin users*/}
           <li>
