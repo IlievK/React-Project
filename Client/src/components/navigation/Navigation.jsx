@@ -1,4 +1,4 @@
-import styles from '../navigation/home.module.css'
+import styles from '../navigation/navigation.module.css'
 export default function Navigation() {
 
   return (
@@ -17,9 +17,9 @@ export default function Navigation() {
           <li>
             <a href="#">Create Offer</a>
           </li>
-          <li>
+          {/* <li>
             <a href="#">Search</a>
-          </li>
+          </li> */}
           <li>
             <a href="#">Logout</a>
           </li>
