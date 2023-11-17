@@ -1,9 +1,10 @@
-export default function Navigation (){
+import styles from '../navigation/home.module.css'
+export default function Navigation() {
 
-    return(
-        
+  return (
 
-        <nav>
+    
+      <nav>
         <ul>
           {/*For all users*/}
           <li>
@@ -31,5 +32,7 @@ export default function Navigation (){
           </li>
         </ul>
       </nav>
-    )
+  
+
+  )
 }
