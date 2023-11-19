@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Navigation from './components/navigation/Navigation.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import Home from './components/home/Home.jsx'
-import {Route, Router, Routes} from 'react-router-dom'
+import {Route, Routes} from 'react-router-dom'
 import Catalog from './components/catalog/catalog.jsx'
 
 function App() {  const [count, setCount] = useState(0)
