@@ -2,8 +2,8 @@ import styles from '../login/login.module.css'
 
 export default function Login() {
     return (
-        <section className={styles['loginPage']} id="loginPage">
-            <form className={styles['loginForm']} id="loginForm" action="" method="">
+        <section className={styles['loginPage']} >
+            <form className={styles['loginForm']} >
                 <label htmlFor="email">Email:</label>
                 <input type="text" id="email" name="" placeholder="Email" />
                 <label htmlFor="password">Password:</label>
