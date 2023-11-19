@@ -25,7 +25,7 @@ export default function Navigation() {
           </li>
           {/*For guest user*/}
           <li>
-            <a href="#">Login</a>
+            <a href="/auth/login">Login</a>
           </li>
           <li>
             <a href="#">Register</a>

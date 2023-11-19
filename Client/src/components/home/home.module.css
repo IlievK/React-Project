@@ -16,24 +16,24 @@ h2 {
     margin: 0;
 }
 
-label {
+/* label {
     color: gray;
     font-size: 25px;
-}
+} */
 
 
 
-form {
+/* form {
     text-align: center;
-}
+} */
 
-input {
+/* input {
     display: block;
     margin: 10px auto;
     width: 200px;
     border: 2px solid lightsteelblue;
     padding: 5px;
-}
+} */
 
 footer {
     margin-top: 50px;
