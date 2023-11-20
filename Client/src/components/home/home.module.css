@@ -1,12 +1,12 @@
 
-body {
+/* body {
     width: 100%;
     margin: 0;
     padding: 0;
     background: url("../image/background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 * 
 
@@ -34,7 +34,7 @@ h2 {
     border: 2px solid lightsteelblue;
     padding: 5px;
 } */
-
+/* 
 footer {
     margin-top: 50px;
     text-align: center;
@@ -44,7 +44,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
-}
+} */
 
 
 

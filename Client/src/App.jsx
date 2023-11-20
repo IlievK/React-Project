@@ -8,6 +8,7 @@ import {Route, Routes} from 'react-router-dom'
 import Catalog from './components/catalog/catalog.jsx'
 import Login from './components/login/Login.jsx'
 import Register from './components/register/Register.jsx'
+import Create from './components/create/Create.jsx'
 
 function App() {  const [count, setCount] = useState(0)
 
@@ -19,6 +20,7 @@ function App() {  const [count, setCount] = useState(0)
       <Route path='/catalog' element={<Catalog/>} />
       <Route path='/auth/login' element={<Login />} />
       <Route path='/auth/register' element={<Register />} />
+      <Route path='/data/create' element={<Create />} />
     </Routes>
     <Footer />
     </>
