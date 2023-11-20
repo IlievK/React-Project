@@ -15,7 +15,7 @@ export default function Navigation() {
           </li>
           {/*For loggin users*/}
           <li>
-            <a href="#">Create Offer</a>
+            <a href="/data/create">Create Offer</a>
           </li>
           {/* <li>
             <a href="#">Search</a>

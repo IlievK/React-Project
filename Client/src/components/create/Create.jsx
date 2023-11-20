@@ -1,7 +1,8 @@
+import styles from '../create/create.module.css'
 export default function Create(){
     return(
-        <section id="createPage">
-  <form id="createForm" action="#" method="">
+        <section className={styles['createPage']} id="createPage">
+  <form className={styles['createForm']} id="createForm" action="#" method="">
     <label htmlFor="name">Name:</label>
     <input type="text" id="name" name="" placeholder="Name..." />
     <label htmlFor="type">Type:</label>
