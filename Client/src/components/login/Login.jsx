@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { useForm } from '../../hooks/useForm.js'
 import styles from '../login/login.module.css'
 
@@ -22,7 +23,10 @@ export default function Login({
                 <input onChange={onChange}  type="text" id="email" name={LoginForm.Email} placeholder="Email" value={formValues[LoginForm.Email]} />
                 <label htmlFor="password">Password:</label>
                 <input onChange={onChange} type="password" id="password" name={LoginForm.Password} placeholder="Password" value={formValues[LoginForm.Password]} />
-                <input   type="submit"  className={styles['loginForm']} value='Submit' />
+                <input type="submit"  className={styles['loginForm']} value='Submit' />
+                <p><span>
+                If you don't have an account, please register <Link to="/auth/register">here</Link>
+                    </span> </p>
                 
             </form>
         </section>

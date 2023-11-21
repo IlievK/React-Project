@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styles from '../register/register.module.css'
 export default function Register() {
     return (
@@ -22,6 +23,9 @@ export default function Register() {
                     placeholder="Repeat Password"
                 />
                 <input type="submit" className={styles['register']} defaultValue="Register" />
+                <p><span >
+                If you don't have an account, please login <Link to="/auth/login">here</Link>
+                    </span> </p>
             </form>
         </section>
 
