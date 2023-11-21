@@ -10,15 +10,18 @@ import Login from './components/login/Login.jsx'
 import Register from './components/register/Register.jsx'
 import Create from './components/create/Create.jsx'
 
-function App() {  const [count, setCount] = useState(0)
-
+function App() { 
+   const [count, setCount] = useState(0)
+    const onSubmitHandler = (values) => {
+      console.log(values);
+    }
   return (
     <>
     <Navigation />
     <Routes> 
       <Route  path='/' element={<Home />} />
       <Route path='/catalog' element={<Catalog/>} />
-      <Route path='/auth/login' element={<Login />} />
+      <Route path='/auth/login' element={<Login onSubmitHandler={onSubmitHandler} />} />
       <Route path='/auth/register' element={<Register />} />
       <Route path='/data/create' element={<Create />} />
     </Routes>
