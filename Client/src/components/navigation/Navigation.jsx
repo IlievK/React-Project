@@ -1,10 +1,11 @@
-import '../navigation/navigation.module.css'
+import styles from '../navigation/navigation.module.css'
+
 export default function Navigation() {
 
   return (
 
     
-      <nav>
+      <nav className={styles['nav']}>
         <ul>
           {/*For all users*/}
           <li>
