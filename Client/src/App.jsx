@@ -9,6 +9,7 @@ import Catalog from './components/catalog/catalog.jsx'
 import Login from './components/login/Login.jsx'
 import Register from './components/register/Register.jsx'
 import Create from './components/create/Create.jsx'
+import Logout from './components/logout/Logout.jsx'
 
 function App() { 
    const [count, setCount] = useState(0)
@@ -24,6 +25,7 @@ function App() {
       <Route path='/auth/login' element={<Login onSubmitHandler={onSubmitHandler} />} />
       <Route path='/auth/register' element={<Register />} />
       <Route path='/data/create' element={<Create />} />
+      <Route path='/logout' element={<Logout />} />
     </Routes>
     <Footer />
     </>
