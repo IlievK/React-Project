@@ -21,7 +21,7 @@ export default function Navigation() {
             <a href="#">Search</a>
           </li> */}
           <li>
-            <a href="#">Logout</a>
+            <a href="/logout">Logout</a>
           </li>
           {/*For guest user*/}
           <li>
