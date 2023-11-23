@@ -4,7 +4,8 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
-    background: url("../image/background.jpg");
+    /* background: url("../image/background.jpg"); */
+    background: url('https://cdn.akamai.steamstatic.com/steam/apps/730/ss_ef98db5d5a4d877531a5567df082b0fb62d75c80.jpg?t=1698860631');
     background-repeat: no-repeat;
     background-size: cover;
 }
