@@ -10,7 +10,7 @@ const LoginForm = {
 export default function Login({
     onSubmitHandler
 }) {
-    const {  formValues,onChange, onSubmit } = useForm(
+    const { formValues, onChange, onSubmit } = useForm(
         {
             [LoginForm.Email]: '',
             [LoginForm.Password]: ''
@@ -20,14 +20,14 @@ export default function Login({
         <section className={styles['loginPage']} >
             <form className={styles['loginForm']} onSubmit={onSubmit} >
                 <label htmlFor="email">Email:</label>
-                <input onChange={onChange}  type="text" id="email" name={LoginForm.Email} placeholder="Email" value={formValues[LoginForm.Email]} />
+                <input onChange={onChange} type="text" id="email" name={LoginForm.Email} placeholder="Email" value={formValues[LoginForm.Email]} />
                 <label htmlFor="password">Password:</label>
                 <input onChange={onChange} type="password" id="password" name={LoginForm.Password} placeholder="Password" value={formValues[LoginForm.Password]} />
-                <input type="submit"  className={styles['loginForm']} value='Login' />
+                <input type="submit" className={styles['loginForm']} value='Login' />
                 <p><span>
-                If you don't have an account, please register <Link to="/auth/register">here</Link>
-                    </span> </p>
-                
+                    If you don't have an account, please register <Link to="/auth/register">here</Link>
+                </span> </p>
+
             </form>
         </section>
     )

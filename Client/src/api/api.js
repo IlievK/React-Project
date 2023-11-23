@@ -1,4 +1,4 @@
-const host = "http://localhost:3030";
+const host = "http://localhost:3030/jsonstore";
 
 async function request(method, url, data) {
   const options = {
@@ -15,9 +15,9 @@ async function request(method, url, data) {
 
   //TO DO ACCESSTOKEN /   USER
 
-  if (user) {
-    options.headers["X-Authorization"] = user.accessToken;
-  }
+  // if (user) {
+  //   options.headers["X-Authorization"] = user.accessToken;
+  // }
 
   try {
     const response = await fetch(host + url, options);

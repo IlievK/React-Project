@@ -1,5 +1,9 @@
 import styles from '../create/create.module.css'
 export default function Create() {
+
+
+    
+
     return (
         <section className={styles['createPage']} id="createPage">
             <form className={styles['createForm']} id="createForm" action="#" method="">

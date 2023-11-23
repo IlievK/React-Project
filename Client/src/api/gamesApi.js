@@ -1,12 +1,12 @@
 import * as api from "./api.js";
 //TO DO - ADD RELEVANT ENDPOINTS
 const endpoints = {
-  allItems: "/data/catalog",
-  getOneById: "/data/catalog/",
+  allItems: "/games",
+  getOneById: "/data/games/",
   myItems: (userId) => `/data/catalog?where=_ownerId%3D%22${userId}%22`,
-  create: "/data/catalog",
-  edit: "/data/catalog/",
-  delete: "/data/catalog/"
+  create: "/data/games",
+  edit: "/data/games/",
+  delete: "/data/games/"
 };
 
 export async function getAll() {
