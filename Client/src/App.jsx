@@ -26,6 +26,7 @@ function App() {
       <Route path='/auth/register' element={<Register />} />
       <Route path='/data/create' element={<Create />} />
       <Route path='/logout' element={<Logout />} />
+      {/* <Route path='/catalog/:id/details' element={<Details />} /> */}
     </Routes>
     <Footer />
     </>
