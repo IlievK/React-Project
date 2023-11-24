@@ -1,6 +1,17 @@
 import { Link } from 'react-router-dom'
 import styles from '../register/register.module.css'
+import { useForm } from '../../hooks/useForm'
+const RegisterForm = {
+    Email: 'email',
+    Password: 'password',
+    Username
+}
 export default function Register() {
+
+    const { values, onChange, onSubmit} = useForm({
+
+    }, onRegisterSubmitHandler)
+
     return (
         <section className={styles['registerPage']} >
             <form className={styles['registerForm']} action="#" method="">
@@ -10,8 +21,9 @@ export default function Register() {
                 <input
                     type="text"
                     id="username"
-                    name=""
+                    name={RegisterForm.Username}
                     placeholder="Enter your Username"
+                    onChange={onChange}
                 />
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" name="" placeholder="Password" />
