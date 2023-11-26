@@ -1,4 +1,4 @@
-import { get, post } from "./api.js";
+import { get, post } from "../utils/api.js";
 
 const endpoints = {
   login: "/users/login",
@@ -11,8 +11,8 @@ export async function login(email, password) {
   sessionStorage.setItem("user", JSON.stringify(user));
 }
 
-export async function register(email, password) {
-  const user = await post(endpoints.register, { email, password });
+export async function register(email, password, username) {
+  const user = await post(endpoints.register, { email, password, username });
   sessionStorage.setItem("user", JSON.stringify(user));
 }
 

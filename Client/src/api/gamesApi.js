@@ -1,7 +1,7 @@
-import * as api from "./api.js";
+import * as api from "../utils/api.js";
 //TO DO - ADD RELEVANT ENDPOINTS
 const endpoints = {
-  allItems: "/games",
+  allItems: "/jsonstore/games",
   getOneById: "/data/games/",
   myItems: (userId) => `/data/catalog?where=_ownerId%3D%22${userId}%22`,
   create: "/data/games",
