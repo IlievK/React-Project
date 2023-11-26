@@ -9,7 +9,7 @@ export default function Item ({
   _id
 }) {
     return(
-        <Link to={`/catalog/${_id}`} className={styles['added-electronics-in-market']}>
+        <Link to={`/catalog/${_id}/details`} className={styles['added-electronics-in-market']}>
         <img src={imageUrl} className={styles['picture-added-electronics']} />
         <p>{title}</p>
         <p>{category}</p>

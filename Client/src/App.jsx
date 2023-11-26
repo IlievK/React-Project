@@ -12,8 +12,12 @@ import Create from './components/create/Create.jsx'
 import Logout from './components/logout/Logout.jsx'
 
 function App() { 
-   const [count, setCount] = useState(0)
+  //  const [count, setCount] = useState(0)
     const onSubmitHandler = (values) => {
+      console.log(values);
+    }
+
+    const onRegisterSubmitHandler = (values)=>{
       console.log(values);
     }
   return (
@@ -23,9 +27,10 @@ function App() {
       <Route  path='/' element={<Home />} />
       <Route path='/catalog' element={<Catalog/>} />
       <Route path='/auth/login' element={<Login onSubmitHandler={onSubmitHandler} />} />
-      <Route path='/auth/register' element={<Register />} />
+      <Route path='/auth/register' element={<Register onRegisterSubmitHandler={onRegisterSubmitHandler}/>} />
       <Route path='/data/create' element={<Create />} />
       <Route path='/logout' element={<Logout />} />
+      {/* <Route path='/catalog/:id/details' element={<Details />} /> */}
     </Routes>
     <Footer />
     </>
