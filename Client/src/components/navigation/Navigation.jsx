@@ -1,6 +1,6 @@
 import styles from '../navigation/navigation.module.css'
-
-export default function Navigation() {
+import { Link } from "react-router-dom";
+export default function Navigation({hasUser}) {
 
   return (
 
@@ -9,28 +9,29 @@ export default function Navigation() {
         <ul>
           {/*For all users*/}
           <li>
-            <a href="/">Home</a>
+            <Link to={"/"}>Home</Link>
           </li>
           <li>
-            <a href="/catalog">Catalog</a>
+            <Link to={"/catalog"}>Catalog</Link>
           </li>
           {/*For loggin users*/}
+
+          {hasUser ? <><li>
+          <Link to={"/data/create"}>Create Game</Link>
+        </li>
+           {/* <li>
+          //   <Link to={{">Search}}</Link>
+          // </li> */}
           <li>
-            <a href="/data/create">Create Offer</a>
-          </li>
-          {/* <li>
-            <a href="#">Search</a>
-          </li> */}
-          <li>
-            <a href="/logout">Logout</a>
-          </li>
+            <Link to={"/logout"}>Logout</Link>
+          </li></> : <><li>
+            <Link to={"/auth/login"}>Login</Link>
+          </li><li>
+              <Link to={"/auth/register"}>Register</Link>
+            </li></>}
+          
           {/*For guest user*/}
-          <li>
-            <a href="/auth/login">Login</a>
-          </li>
-          <li>
-            <a href="/auth/register">Register</a>
-          </li>
+          
         </ul>
       </nav>
   

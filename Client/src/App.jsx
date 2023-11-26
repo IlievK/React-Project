@@ -13,6 +13,8 @@ import Logout from './components/logout/Logout.jsx'
 import { login, register } from './api/users.js'
 
 function App() {
+
+    const [hasUser, sethasUser] = useState(false)
     const navigate = useNavigate()
     //  const [count, setCount] = useState(0)
     const onLoginSubmitHandler = async (values) => {
@@ -50,7 +52,7 @@ function App() {
     }
     return (
         <>
-            <Navigation />
+            <Navigation hasUser={hasUser}/>
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/catalog' element={<Catalog />} />

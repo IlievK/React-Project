@@ -96,7 +96,7 @@ export default function Create({
                     name=""
                     placeholder="Description..."
                 /> */}
-                <input type="submit" className={styles['create']} value="Create Offer" />
+                <input type="submit" className={styles['create']} value="Create Game" />
             </form>
         </section>
 
