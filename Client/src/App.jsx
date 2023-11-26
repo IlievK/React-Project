@@ -13,7 +13,7 @@ import Logout from './components/logout/Logout.jsx'
 
 function App() { 
   //  const [count, setCount] = useState(0)
-    const onSubmitHandler = (values) => {
+    const onLoginSubmitHandler = (values) => {
       console.log(values);
     }
 
@@ -29,7 +29,7 @@ function App() {
     <Routes> 
       <Route  path='/' element={<Home />} />
       <Route path='/catalog' element={<Catalog/>} />
-      <Route path='/auth/login' element={<Login onSubmitHandler={onSubmitHandler} />} />
+      <Route path='/auth/login' element={<Login onLoginSubmitHandler={onLoginSubmitHandler} />} />
       <Route path='/auth/register' element={<Register onRegisterSubmitHandler={onRegisterSubmitHandler}/>} />
       <Route path='/data/create' element={<Create onCreateSubmitHndler={onCreateSubmitHndler} />} />
       <Route path='/logout' element={<Logout />} />

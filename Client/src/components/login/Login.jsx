@@ -8,14 +8,14 @@ const LoginForm = {
 }
 
 export default function Login({
-    onSubmitHandler
+    onLoginSubmitHandler
 }) {
     const { formValues, onChange, onSubmit } = useForm(
         {
             [LoginForm.Email]: '',
             [LoginForm.Password]: ''
 
-        }, onSubmitHandler)
+        }, onLoginSubmitHandler)
     return (
         <section className={styles['loginPage']} >
             <form className={styles['loginForm']} onSubmit={onSubmit} >
