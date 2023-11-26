@@ -20,6 +20,9 @@ function App() {
     const onRegisterSubmitHandler = (values)=>{
       console.log(values);
     }
+    const onCreateSubmitHndler = (values)=>{
+      console.log(values);
+    }
   return (
     <>
     <Navigation />
@@ -28,7 +31,7 @@ function App() {
       <Route path='/catalog' element={<Catalog/>} />
       <Route path='/auth/login' element={<Login onSubmitHandler={onSubmitHandler} />} />
       <Route path='/auth/register' element={<Register onRegisterSubmitHandler={onRegisterSubmitHandler}/>} />
-      <Route path='/data/create' element={<Create />} />
+      <Route path='/data/create' element={<Create onCreateSubmitHndler={onCreateSubmitHndler} />} />
       <Route path='/logout' element={<Logout />} />
       {/* <Route path='/catalog/:id/details' element={<Details />} /> */}
     </Routes>
