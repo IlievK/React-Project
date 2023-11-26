@@ -15,28 +15,32 @@ const CreateForm = {
 
 export default function Create() {
     const navigate = useNavigate()
-    const onCreateSubmitHndler = async (values) =>{
     
+    const onCreateSubmitHndler = async (values) =>{
+        
+        const formData = [...Object.entries(values)]
         
         try {
-            console.log(values);
-            // const missing = values.filter(([k, v]) => v.trim() == "")
-            // if (missing.length > 0) {
-            //     const errors = missing.reduce((a, [k]) => Object.assign(a, { [k]: true }), {})
-            //     // console.log(errors);
-            //     throw {
-            //         error: new Error('Please fill all mandatory fields!'),
-            //         errors
-            //     }
-            // }
+            // console.log(values);
+            const missing = formData.filter(([k, v]) => v.trim() == "")
+            if (missing.length > 0) {
+                const errors = missing.reduce((a, [k]) => Object.assign(a, { [k]: true }), {})
+                // console.log(errors);
+                throw {
+                    error: new Error('All field are required!'),
+                    errors
+                }
+            }
             const data = await createOne(values)
             
             console.log(data);
             console.log(values);
             navigate('/catalog')
         } catch (error) {
-            console.log(error);
-            console.log(`Errors: ${error}`);
+            console.log(error.errors);
+            console.log(error.error);
+            alert(error.error)
+            // console.log(`Errors: ${error}`);
         }
     }
 
@@ -56,6 +60,7 @@ export default function Create() {
 
     return (
         <section className={styles['createPage']} id="createPage">
+
             <form onSubmit={onSubmit} className={styles['createForm']} id="createForm"  method="post">
                 <label htmlFor="name">Name:</label>
                 <input
@@ -65,7 +70,9 @@ export default function Create() {
                     name={CreateForm.Name}
                     placeholder="Name..."
                     value={formValues[CreateForm.Name]}
-                />
+                    
+                    />
+                   
                 <label htmlFor="type">Type:</label>
                 <input
                     onChange={onChange}
