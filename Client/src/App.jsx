@@ -14,7 +14,7 @@ import { login, register } from './api/users.js'
 
 function App() {
 
-    const [hasUser, sethasUser] = useState(false)
+    const [hasUser, sethasUser] = useState(true)
     const navigate = useNavigate()
     //  const [count, setCount] = useState(0)
     const onLoginSubmitHandler = async (values) => {
