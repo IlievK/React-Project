@@ -9,7 +9,6 @@ const CreateForm = {
     Price: 'price',
     Description: 'description'
 
-
 }
 
 export default function Create({

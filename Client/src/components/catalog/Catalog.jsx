@@ -21,16 +21,15 @@ export default function Catalog() {
     <>
 
       <section id={styles['viewCatalog']} className={styles['background-img']}>
-        {/*If there are one or more electronics*/}
-        <div className={styles['added-electronics']}>
+         { items.length > 0  && <div className={styles['added-electronics']}>
           { items.map( item => <Item key={item._id} {...item}/>)}
+            </div> }
+        {
+        items.length == 0 && <div className={styles['guest']}>
+          There are no games found...
+          </div>
+        }
 
-          
-        </div>
-        {/*If there are no electronics in catalog yet*/}
-        {/* <div className="guest">
-          There are no electronics found...
-      </div> */}
       </section>
     </>
   )
