@@ -6,12 +6,12 @@ const endpoints = {
   logout: "/users/logout",
 };
 
-export async function login(email, password) {
+export async function login({email, password}) {
   const user = await post(endpoints.login, { email, password });
   sessionStorage.setItem("user", JSON.stringify(user));
 }
 
-export async function register(email, password, username) {
+export async function register({email, password, username}) {
   const user = await post(endpoints.register, { email, password, username });
   sessionStorage.setItem("user", JSON.stringify(user));
 }

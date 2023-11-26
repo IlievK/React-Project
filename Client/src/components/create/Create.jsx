@@ -1,3 +1,5 @@
+import { useNavigate } from 'react-router-dom'
+import { createOne } from '../../api/gamesApi.js'
 import { useForm } from '../../hooks/useForm.js'
 import styles from '../create/create.module.css'
 
@@ -8,12 +10,35 @@ const CreateForm = {
     Image: 'image',
     Price: 'price',
     Description: 'description'
-
 }
 
-export default function Create({
-    onCreateSubmitHndler
-}) {
+
+export default function Create() {
+    const navigate = useNavigate()
+    const onCreateSubmitHndler = async (values) =>{
+    
+        
+        try {
+            console.log(values);
+            // const missing = values.filter(([k, v]) => v.trim() == "")
+            // if (missing.length > 0) {
+            //     const errors = missing.reduce((a, [k]) => Object.assign(a, { [k]: true }), {})
+            //     // console.log(errors);
+            //     throw {
+            //         error: new Error('Please fill all mandatory fields!'),
+            //         errors
+            //     }
+            // }
+            const data = await createOne(values)
+            
+            console.log(data);
+            console.log(values);
+            navigate('/catalog')
+        } catch (error) {
+            console.log(error);
+            console.log(`Errors: ${error}`);
+        }
+    }
 
     const { formValues, onChange, onSubmit } = useForm(
         {
@@ -25,6 +50,8 @@ export default function Create({
         [CreateForm.Description]: ''
     }
     , onCreateSubmitHndler)
+
+
 
 
     return (

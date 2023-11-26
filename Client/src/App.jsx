@@ -18,11 +18,18 @@ function App() {
     const navigate = useNavigate()
     //  const [count, setCount] = useState(0)
     const onLoginSubmitHandler = async (values) => {
-        console.log(`Email:${values.email}`);
-        console.log(`Password:${values.password}`);
-        const user = await login(values.email, values.password)
-        const token = JSON.parse(sessionStorage.getItem('user'))
-        console.log(token._id);
+
+        try {
+            
+            console.log(`Email:${values.email}`);
+            console.log(`Password:${values.password}`);
+            const user = await login({...values})
+            const token = JSON.parse(sessionStorage.getItem('user'))
+            console.log(token._id);
+            navigate('/catalog')
+        } catch (error) {
+            console.log(error);
+        }
     }
 
 
@@ -36,7 +43,7 @@ function App() {
                 throw new Error('Password don\'t match')
             }
 
-            const user = await register(values.email, values.password, values.username)
+            const user = await register({...values})
             const token = JSON.parse(sessionStorage.getItem('user'))
             console.log(token._id);
             navigate('/catalog')
@@ -47,9 +54,7 @@ function App() {
 
 
     }
-    const onCreateSubmitHndler = (values) => {
-        console.log(values);
-    }
+
     return (
         <>
             <Navigation hasUser={hasUser}/>
@@ -58,7 +63,7 @@ function App() {
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/auth/login' element={<Login onLoginSubmitHandler={onLoginSubmitHandler} />} />
                 <Route path='/auth/register' element={<Register onRegisterSubmitHandler={onRegisterSubmitHandler} />} />
-                <Route path='/data/create' element={<Create onCreateSubmitHndler={onCreateSubmitHndler} />} />
+                <Route path='/data/create' element={<Create  />} />
                 <Route path='/logout' element={<Logout />} />
                 {/* <Route path='/catalog/:id/details' element={<Details />} /> */}
             </Routes>

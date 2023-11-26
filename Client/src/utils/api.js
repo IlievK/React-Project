@@ -11,13 +11,13 @@ async function request(method, url, data) {
     options.body = JSON.stringify(data);
   }
 
-  // const user = JSON.parse(sessionStorage.getItem("user"));
+  const user = JSON.parse(sessionStorage.getItem("user"));
 
-  //TO DO ACCESSTOKEN /   USER
+  // TO DO ACCESSTOKEN /   USER
 
-  // if (user) {
-  //   options.headers["X-Authorization"] = user.accessToken;
-  // }
+  if (user) {
+    options.headers["X-Authorization"] = user.accessToken;
+  }
 
   try {
     const response = await fetch(host + url, options);
