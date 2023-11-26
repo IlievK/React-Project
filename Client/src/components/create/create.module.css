@@ -16,6 +16,7 @@
 }
 
 .createForm label {
+  display: block;
   margin-top: 20px;
   margin-bottom: 20px;
   color: white;
@@ -29,11 +30,17 @@
   font-size: 16px;
 }
 
-.createForm input[type="submit"] {
+.createForm input [type="submit"] {
   margin-top: 5%;
   margin-bottom: 5%;
   width: 40%;
   font-size: 20px;
+}
+.createForm textarea  {
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
 }
 
 input[type="number"]::-webkit-inner-spin-button,

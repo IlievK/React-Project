@@ -1,39 +1,72 @@
+import { useForm } from '../../hooks/useForm.js'
 import styles from '../create/create.module.css'
 export default function Create() {
 
+    const { values, onChange, onSubmit } = useForm
 
-    
 
     return (
         <section className={styles['createPage']} id="createPage">
-            <form className={styles['createForm']} id="createForm" action="#" method="">
+            <form onSubmit={onSubmit} className={styles['createForm']} id="createForm" action="#" method="">
                 <label htmlFor="name">Name:</label>
-                <input type="text" id="name" name="" placeholder="Name..." />
+                <input
+                    onChange={onChange}
+                    type="text"
+                    id="name"
+                    name=""
+                    placeholder="Name..."
+                />
                 <label htmlFor="type">Type:</label>
-                <input type="text" id="type" name="" placeholder="Type..." />
+                <input
+                    onChange={onChange}
+                    type="text"
+                    id="type"
+                    name=""
+                    placeholder="Type..."
+                />
                 <label htmlFor="production">Year of Production:</label>
                 <input
+                    onChange={onChange}
                     type="number"
                     id="production"
                     name=""
                     placeholder="Year of Production..."
                 />
-                <label htmlFor="exploitation">Years of Exploitation:</label>
-                <input
-                    type="number"
-                    id="exploitation"
-                    name=""
-                    placeholder="Year of Exploitation..."
-                />
-                <label htmlFor="damages">Damages:</label>
-                <input type="text" id="damages" name="" placeholder="Damages..." />
                 <label htmlFor="image">Image:</label>
-                <input type="text" id="image" name="" placeholder="Image..." />
+                <input
+                    onChange={onChange}
+                    type="text"
+                    id="image"
+                    name=""
+                    placeholder="Image..."
+                />
                 <label htmlFor="price">Price:</label>
-                <input type="number" id="price" name="" placeholder="Price..." />
+                <input
+                    onChange={onChange}
+                    type="number"
+                    id="price"
+                    name=""
+                    placeholder="Price..."
+                />
                 <label htmlFor="description">Description:</label>
-                <input type="text" id="description" name="" placeholder="Description..." />
-                <input type="submit" className="create" defaultValue="Create Offer" />
+                <textarea
+                onChange={onChange}
+                name=""
+                cols="24"
+                rows="10"
+                type="text"
+                id={styles["description"]}
+                placeholder="Description..."></textarea>
+                
+
+               {/* <input
+                    onChange={onChange}
+                    type="text"
+                    id="description"
+                    name=""
+                    placeholder="Description..."
+                /> */}
+                <input type="submit" className={styles['create']} value="Create Offer" />
             </form>
         </section>
 
