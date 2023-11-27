@@ -45,7 +45,10 @@ function App() {
             }
 
             const user = await register({...values})
+            
             const token = JSON.parse(sessionStorage.getItem('user'))
+            setAuth(user)
+            // console.log(user);
             console.log(token._id);
             navigate('/catalog')
 
@@ -60,10 +63,10 @@ function App() {
     }
 
     const context = {
-        userId : auth?._id,
-        userEmail : auth?.email,
-        userToken: auth?.accessToken,
-        hasUser: !!auth?.accessToken,
+        userId : auth._id,
+        userEmail : auth.email,
+        userToken: auth.accessToken,
+        hasUser: !!auth.accessToken,
         logAutHandler
         
     }

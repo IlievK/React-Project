@@ -16,6 +16,7 @@ export async function login({email, password}) {
 export async function register({email, password, username}) {
   const user = await post(endpoints.register, { email, password, username });
   sessionStorage.setItem("user", JSON.stringify(user));
+  return user
 }
 
 export async function logout() {
