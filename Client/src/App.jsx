@@ -11,19 +11,19 @@ import Register from './components/register/Register.jsx'
 import Create from './components/create/Create.jsx'
 import Logout from './components/logout/Logout.jsx'
 import { login, register } from './api/users.js'
+import { AuthContext } from './components/contexts/AuthContex.js';
 
 function App() {
-
-    const [hasUser, sethasUser] = useState(true)
+    const [auth, setAuth] = useState({})
     const navigate = useNavigate()
     //  const [count, setCount] = useState(0)
     const onLoginSubmitHandler = async (values) => {
 
         try {
             
-            console.log(`Email:${values.email}`);
-            console.log(`Password:${values.password}`);
             const user = await login({...values})
+            setAuth(user)
+            console.log(`user: ${user.accessToken}`);
             const token = JSON.parse(sessionStorage.getItem('user'))
             console.log(token._id);
             navigate('/catalog')
@@ -51,13 +51,26 @@ function App() {
         } catch (error) {
             console.log(error);
         }
+    }
 
+    const logAutHandler = ()=>{
+        
+        setAuth({})
+    }
 
+    const context = {
+        userId : auth?._id,
+        userEmail : auth?.email,
+        userToken: auth?.accessToken,
+        hasUser: !!auth?.accessToken,
+        logAutHandler
+        
     }
 
     return (
         <>
-            <Navigation hasUser={hasUser}/>
+        <AuthContext.Provider value={context}>
+            <Navigation />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/catalog' element={<Catalog />} />
@@ -68,8 +81,10 @@ function App() {
                 {/* <Route path='/catalog/:id/details' element={<Details />} /> */}
             </Routes>
             <Footer />
+            </AuthContext.Provider >
         </>
     )
 }
+
 
 export default App
