@@ -11,7 +11,8 @@ import Register from './components/register/Register.jsx'
 import Create from './components/create/Create.jsx'
 import Logout from './components/logout/Logout.jsx'
 import { login, register } from './api/users.js'
-import { AuthContext } from './components/contexts/AuthContex.js';
+import { AuthContext } from './contexts/AuthContex.js';
+import Details from './components/details/Details.jsx';
 
 function App() {
     const [auth, setAuth] = useState({})
@@ -78,7 +79,7 @@ function App() {
                 <Route path='/auth/register' element={<Register onRegisterSubmitHandler={onRegisterSubmitHandler} />} />
                 <Route path='/data/create' element={<Create  />} />
                 <Route path='/logout' element={<Logout />} />
-                {/* <Route path='/catalog/:id/details' element={<Details />} /> */}
+                <Route path='/catalog/:id/details' element={<Details />} />
             </Routes>
             <Footer />
             </AuthContext.Provider >

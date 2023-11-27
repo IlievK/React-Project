@@ -1,7 +1,7 @@
 import styles from '../navigation/navigation.module.css'
 import { Link } from "react-router-dom";
 import { useContext } from 'react';
-import { AuthContext } from '../contexts/AuthContex.js'
+import { AuthContext } from '../../contexts/AuthContex.js'
 
 export default function Navigation() {
   const {hasUser} = useContext(AuthContext)
