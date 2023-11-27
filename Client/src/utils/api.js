@@ -26,6 +26,10 @@ async function request(method, url, data) {
       const error = await response.json();
       throw new Error(error.message);
     }
+    // TO DO - to be checked if it's working for logout!
+    if(response.status === 204){
+      return {}
+    }
 
     return await response.json();
   } catch (error) {
