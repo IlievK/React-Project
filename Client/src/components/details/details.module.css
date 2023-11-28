@@ -37,9 +37,14 @@
   display: inline-block;
 }
 
-.info img {
-  width: 30%;
+/* .info img {
+  width: 50%;
   height: inherit;
+} */
+.info img {
+  width: 50%;
+  height: 50%;
+  margin-top: 25px;
 }
 
 .buttons {
