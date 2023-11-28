@@ -12,11 +12,10 @@ export default function Item ({
     return(
         <Link to={`/catalog/${_id}/details`} className={styles['added-electronics-in-market']}>
         <img src={image} className={styles['picture-added-electronics']} />
-        <p>{name}</p>
-        <p>{type}</p>
-        <p>{production}</p>
-        <p>{price}</p>
-        <p>{description}</p>
+        <h4>Name: {name}</h4>
+        
+        <h4>Price: ${price}</h4>
+        <span>Description: {description}</span>
       </Link>
     )
 }

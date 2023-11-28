@@ -2,15 +2,22 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { getOne } from "../../api/gamesApi"
 import styles from '../details/details.module.css'
+import { useContext } from "react"
+import { AuthContext } from "../../contexts/AuthContex"
+
+
 export default function Details() {
   const { id } = useParams()
   const [item, setItem] = useState({})
-
+  const { userId, hasUser } = useContext(AuthContext)
   useEffect(() => {
     getOne(id)
       .then(respone => setItem(respone))
       .catch(error => console.log(error))
-  })
+  }, [])
+  const isOwner = item._ownerId === userId
+
+  console.log(isOwner);
   return (
     <>
 
@@ -29,24 +36,31 @@ export default function Details() {
             </h3>
             <h2>Price: ${item.price}</h2>
           </div>
-          {/*If there is user logged in*/}
-          <div className={styles['buttons']}>
-            {/*If user is not owner of the toy post*/}
+          {hasUser && <div className={styles['buttons']}>
+            {!isOwner && 
             <a href="#" className={styles['buy-btn']}>
               Buy
-            </a>
+            </a> }
+            
+
             {/*If user is owner*/}
-            <a href="#" className={styles['edit-btn']}>
+            {isOwner && <><a href="#" className={styles['edit-btn']}>
               Edit
-            </a>
-            <a href="#" className={styles['delete-btn']}>
-              Delete
-            </a>
+            </a><a href="#" className={styles['delete-btn']}>
+                Delete
+              </a></>
+          }
             {/*If user is not the owner and is bought this toy*/}
-            <p>
+            
+            {!isOwner && <p>
               <span className={styles['buy']}>Thank You For Your Purchase</span>
-            </p>
-          </div>
+            </p> 
+            }
+            
+
+          </div>}
+          {/*If there is user logged in*/}
+
         </div>
       </section>
 
