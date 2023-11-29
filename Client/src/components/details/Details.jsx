@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { getOne } from "../../api/gamesApi"
 import styles from '../details/details.module.css'
 import { useContext } from "react"
@@ -42,12 +42,12 @@ export default function Details() {
 
             {/*If user is owner*/}
             {isOwner && <>
-            <a href="#" className={styles['edit-btn']}>
+            <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
               Edit
-            </a>
-            <a href="#" className={styles['delete-btn']}>
+            </Link>
+            <Link to="#" className={styles['delete-btn']}>
                 Delete
-              </a></>
+              </Link></>
           }
             {/*If user is not the owner and is bought this toy*/}
             

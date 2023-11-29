@@ -1,18 +1,19 @@
 import { useState} from 'react'
 import { useNavigate } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom'
+import { login, register } from './api/users.js'
+import { AuthContext } from './contexts/AuthContex.js';
 
 import Navigation from './components/navigation/Navigation.jsx'
 import Footer from './components/Footer/Footer.jsx'
 import Home from './components/home/Home.jsx'
-import { Route, Routes } from 'react-router-dom'
+import Details from './components/details/Details.jsx';
+import Edit from './components/edit/Edit.jsx';
 import Catalog from './components/catalog/catalog.jsx'
 import Login from './components/login/Login.jsx'
 import Register from './components/register/Register.jsx'
 import Create from './components/create/Create.jsx'
 import Logout from './components/logout/Logout.jsx'
-import { login, register } from './api/users.js'
-import { AuthContext } from './contexts/AuthContex.js';
-import Details from './components/details/Details.jsx';
 
 function App() {
     const [auth, setAuth] = useState({})
@@ -83,6 +84,7 @@ function App() {
                 <Route path='/data/create' element={<Create  />} />
                 <Route path='/logout' element={<Logout />} />
                 <Route path='/catalog/:id/details' element={<Details />} />
+                <Route path='/catalog/:id/edit' element={<Edit />} />
             </Routes>
             <Footer />
             </AuthContext.Provider >
