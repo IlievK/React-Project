@@ -1,5 +1,5 @@
 import styles from '../home/home.module.css'
-export default function(){
+export default function Home(){
     return (
         
         <section id="homePage" className={styles['background-img']}>
