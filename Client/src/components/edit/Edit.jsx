@@ -1,20 +1,20 @@
 import { useForm } from '../../hooks/useForm'
 import  styles  from '../edit/edit.module.css'
 
+const EditForm = {
+    Name: 'name',
+    Type: 'type',
+    Production: 'production',
+    Image: 'image',
+    Price: 'price',
+    Description: 'description'
+}
 export default function Edit() {
 
-    const onEditSubmit = () =>{
-        console.log('Edit');
+    const onEditSubmit = (values) =>{
+        console.log(values);
     }
     
-    const EditForm = {
-        Name: 'name',
-        Type: 'type',
-        Production: 'production',
-        Image: 'image',
-        Price: 'price',
-        Description: 'description'
-    }
 
     const { formValues, onChange, onSubmit } = useForm(
         {
@@ -32,7 +32,7 @@ export default function Edit() {
         <section id={styles['editPage']}>
 
         <form onSubmit={onSubmit} id={styles['editForm']}   method="post">
-            <label htmlFor="name">Name:</label>
+            <label htmlFor="name">Name: </label>
             <input
                 onChange={onChange}
                 type="text"
@@ -40,7 +40,6 @@ export default function Edit() {
                 name={EditForm.Name}
                 placeholder="Name..."
                 value={formValues[EditForm.Name]}
-                
                 />
                
             <label htmlFor="type">Type:</label>
