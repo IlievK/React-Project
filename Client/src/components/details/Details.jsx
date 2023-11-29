@@ -17,11 +17,8 @@ export default function Details() {
   }, [])
   const isOwner = item._ownerId === userId
 
-  console.log(isOwner);
   return (
     <>
-
-
       <section id={styles['detailsPage']}>
         <div id={styles['detailsInfo']}>
           <h1>Name: {item.name}</h1>
@@ -44,9 +41,11 @@ export default function Details() {
             
 
             {/*If user is owner*/}
-            {isOwner && <><a href="#" className={styles['edit-btn']}>
+            {isOwner && <>
+            <a href="#" className={styles['edit-btn']}>
               Edit
-            </a><a href="#" className={styles['delete-btn']}>
+            </a>
+            <a href="#" className={styles['delete-btn']}>
                 Delete
               </a></>
           }
