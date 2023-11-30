@@ -1,18 +1,18 @@
 import { useForm } from '../../hooks/useForm'
 import  styles  from '../edit/edit.module.css'
 
-const EditForm = {
-    Name: 'name',
-    Type: 'type',
-    Production: 'production',
-    Image: 'image',
-    Price: 'price',
-    Description: 'description'
-}
 export default function Edit() {
-
+    
     const onEditSubmit = (values) =>{
         console.log(values);
+    }
+    const EditForm = {
+        Name: 'name',
+        Type: 'type',
+        Production: 'production',
+        Image: 'image',
+        Price: 'price',
+        Description: 'description'
     }
     
 
