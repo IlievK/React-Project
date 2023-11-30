@@ -1,26 +1,22 @@
 import { useEffect } from 'react'
 import { useForm } from '../../hooks/useForm'
 import styles from '../edit/edit.module.css'
-import { useParams } from 'react-router-dom'
-import { getOne } from '../../api/gamesApi'
+import { useNavigate, useParams } from 'react-router-dom'
+import { editItem, getOne } from '../../api/gamesApi'
+
 
 export default function Edit() {
+    const navigate = useNavigate()
     const { id } = useParams()
 
-    useEffect(() => {
-        getOne(id)
-            .then(result => changeValues(result))
-            .catch( error => console.log(error))
-    })
-
-
-
     const onEditSubmit = async (values) => {
-
+    
         const formData = [...Object.entries(values)]
         try {
-            // console.log(values);
-            const missing = formData.filter(([k, v]) => v.trim() == "")
+            console.log(formData);
+            console.log(values);
+            const missing = formData.filter(([k, v]) => v == "")
+            console.log(`missing ${missing}`);
             if (missing.length > 0) {
                 const errors = missing.reduce((a, [k]) => Object.assign(a, { [k]: true }), {})
                 // console.log(errors);
@@ -29,15 +25,17 @@ export default function Edit() {
                     errors
                 }
             }
-            const data = await editItem(values)
-
-            console.log(data);
+            const data = await editItem(id,values)
+    
+            console.log(data?._id);
+            console.log(`data ${data}`);
             console.log(values);
-            navigate(`/catalog/${values._id}/details`)
+            navigate(`/catalog/${data._id}/details`)
         } catch (error) {
-            console.log(error.errors);
-            console.log(error.error);
-            alert(error.error)
+            // console.log(error.errors);
+            // console.log(error.error);
+            console.log(error);
+            alert(error)
             // console.log(`Errors: ${error}`);
         }
     }
@@ -50,8 +48,6 @@ export default function Edit() {
         Price: 'price',
         Description: 'description'
     }
-
-
     const { formValues, onChange, onSubmit, changeValues } = useForm(
         {
             [EditForm.Id]: "",
@@ -64,6 +60,12 @@ export default function Edit() {
         }
         , onEditSubmit)
 
+
+    useEffect(() => {
+        getOne(id)
+            .then(result => changeValues(result))
+            .catch( error => console.log(error))
+        },[id])
 
     return (
         <section id={styles['editPage']}>

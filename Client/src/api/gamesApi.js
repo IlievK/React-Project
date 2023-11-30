@@ -25,7 +25,7 @@ export async function createOne(data){
   api.post(endpoints.create,(data))
 }
 export async function editItem(id,data){
-  api.put(endpoints.edit + id,(data))
+  return api.put(endpoints.edit + id,(data))
 
 }
 

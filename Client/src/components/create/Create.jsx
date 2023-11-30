@@ -17,11 +17,11 @@ export default function Create() {
     const navigate = useNavigate()
     
     const onCreateSubmitHndler = async (values) =>{
-        
+        // console.log(values);
         const formData = [...Object.entries(values)]
         
         try {
-            // console.log(values);
+            // console.log(formData);s
             const missing = formData.filter(([k, v]) => v.trim() == "")
             if (missing.length > 0) {
                 const errors = missing.reduce((a, [k]) => Object.assign(a, { [k]: true }), {})
