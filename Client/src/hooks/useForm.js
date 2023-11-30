@@ -11,6 +11,12 @@ export const useForm = (initilValues, submitHandler) =>{
                 [e.target.name]: e.target.value 
             }));
     }
+
+    const changeValues = (newValues) => {
+
+        setFormvalues(newValues)
+
+    }
     
     const onSubmit = (e) =>{
         e.preventDefault()
@@ -20,7 +26,8 @@ export const useForm = (initilValues, submitHandler) =>{
     return{
         formValues,
         onChange,
-        onSubmit
+        onSubmit,
+        changeValues
     }
 }
 
