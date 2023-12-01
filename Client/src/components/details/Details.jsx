@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, useParams } from "react-router-dom"
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
 import { getOne } from "../../api/gamesApi"
 import styles from '../details/details.module.css'
 import { useContext } from "react"
@@ -10,6 +10,8 @@ export default function Details() {
   const { id } = useParams()
   const [item, setItem] = useState({})
   const { userId, hasUser } = useContext(AuthContext)
+  const navigate = useNavigate()
+
   useEffect(() => {
     getOne(id)
       .then(respone => setItem(respone))
@@ -19,7 +21,9 @@ export default function Details() {
 
   const deleteHandler = ()=>{
     console.log('delete');
-    
+
+    // navigate('/')
+
   }
   return (
     <>
@@ -45,13 +49,12 @@ export default function Details() {
 
 
             {/*If user is owner*/}
-            {isOwner && <>
+            {isOwner && <><>
               <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
                 Edit
               </Link>
-              <Link to="#" className={styles['delete-btn']} onClick={deleteHandler}>
-                Delete
-              </Link></>
+              </>
+              <button type='submit' onClick={deleteHandler} className={styles['delete-btn']} >Delete</button></>
             }
             {/*If user is not the owner and is bought this toy*/}
 

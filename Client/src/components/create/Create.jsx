@@ -32,9 +32,7 @@ export default function Create() {
                 }
             }
             const data = await createOne(values)
-            
-            console.log(data);
-            console.log(values);
+         
             navigate('/catalog')
         } catch (error) {
             console.log(error.errors);
