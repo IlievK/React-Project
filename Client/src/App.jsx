@@ -1,4 +1,4 @@
-import { useState} from 'react'
+// import { useState} from 'react'
 import { useNavigate } from "react-router-dom";
 import { Route, Routes } from 'react-router-dom'
 import { login, register } from './api/users.js'
@@ -14,9 +14,12 @@ import Login from './components/login/Login.jsx'
 import Register from './components/register/Register.jsx'
 import Create from './components/create/Create.jsx'
 import Logout from './components/logout/Logout.jsx'
+import { useLocaleStorage } from './hooks/useLocaleStorage.js';
+
 
 function App() {
-    const [auth, setAuth] = useState({})
+    const key = 'user'
+    const [auth, setAuth] = useLocaleStorage(key,{})
     const navigate = useNavigate()
     //  const [count, setCount] = useState(0)
     const onLoginSubmitHandler = async (values) => {
@@ -24,9 +27,10 @@ function App() {
         try {
             
             const user = await login({...values})
+            console.log(auth);
             setAuth(user)
             console.log(`user: ${user.accessToken}`);
-            const token = JSON.parse(sessionStorage.getItem('user'))
+            const token = JSON.parse(localStorage.getItem('user'))
             console.log(token._id);
             navigate('/catalog')
         } catch (error) {
