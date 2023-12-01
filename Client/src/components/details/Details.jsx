@@ -34,28 +34,28 @@ export default function Details() {
             <h2>Price: ${item.price}</h2>
           </div>
           {hasUser && <div className={styles['buttons']}>
-            {!isOwner && 
-            <a href="#" className={styles['buy-btn']}>
-              Buy
-            </a> }
-            
+            {!isOwner &&
+              <a href="#" className={styles['buy-btn']}>
+                Buy
+              </a>}
+
 
             {/*If user is owner*/}
             {isOwner && <>
-            <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
-              Edit
-            </Link>
-            <Link to="#" className={styles['delete-btn']}>
+              <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
+                Edit
+              </Link>
+              <Link to="#" className={styles['delete-btn']}>
                 Delete
               </Link></>
-          }
+            }
             {/*If user is not the owner and is bought this toy*/}
-            
+
             {!isOwner && <p>
               <span className={styles['buy']}>Thank You For Your Purchase</span>
-            </p> 
+            </p>
             }
-            
+
 
           </div>}
           {/*If there is user logged in*/}

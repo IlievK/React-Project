@@ -1,42 +1,42 @@
 const host = "http://localhost:3030";
 
 async function request(method, url, data) {
-  const options = {
-    method,
-    headers: {},
-  };
+    const options = {
+        method,
+        headers: {},
+    };
 
-  if (data !== undefined) {
-    options.headers["Content-Type"] = "application/json";
-    options.body = JSON.stringify(data);
-  }
-
-  const user = JSON.parse(localStorage.getItem("user"));
-
-  // TO DO ACCESSTOKEN /   USER
-
-  if (user) {
-    options.headers["X-Authorization"] = user.accessToken;
-  }
-
-  try {
-    const response = await fetch(host + url, options);
-
-    if(response.status === 204){
-      console.log(response.status);
-      return {}
+    if (data !== undefined) {
+        options.headers["Content-Type"] = "application/json";
+        options.body = JSON.stringify(data);
     }
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message);
-    }
-    // TO DO - to be checked if it's working for logout!
 
-    return await response.json();
-  } catch (error) {
-    // alert(error.message);
-    throw error;
-  }
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    // TO DO ACCESSTOKEN /   USER
+
+    if (user) {
+        options.headers["X-Authorization"] = user.accessToken;
+    }
+
+    try {
+        const response = await fetch(host + url, options);
+
+        if (response.status === 204) {
+            console.log(response.status);
+            return {}
+        }
+        if (!response.ok) {
+            const error = await response.json();
+            throw new Error(error.message);
+        }
+        // TO DO - to be checked if it's working for logout!
+
+        return await response.json();
+    } catch (error) {
+        // alert(error.message);
+        throw error;
+    }
 }
 
 export const get = request.bind(null, "GET");
