@@ -27,11 +27,9 @@ function App() {
         try {
             
             const user = await login({...values})
-            console.log(auth);
-            setAuth(user)
+         
             console.log(`user: ${user.accessToken}`);
-            const token = JSON.parse(localStorage.getItem('user'))
-            console.log(token._id);
+          
             navigate('/catalog')
         } catch (error) {
             console.log(error);
@@ -50,11 +48,9 @@ function App() {
             }
 
             const user = await register({...values})
-            
-            const token = JSON.parse(sessionStorage.getItem('user'))
+           
             setAuth(user)
-            // console.log(user);
-            console.log(token._id);
+        
             navigate('/catalog')
 
         } catch (error) {

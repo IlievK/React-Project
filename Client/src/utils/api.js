@@ -11,7 +11,7 @@ async function request(method, url, data) {
     options.body = JSON.stringify(data);
   }
 
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user"));
 
   // TO DO ACCESSTOKEN /   USER
 
