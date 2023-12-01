@@ -13,23 +13,18 @@ export default function Edit() {
     
         const formData = [...Object.entries(values)]
         try {
-            console.log(formData);
-            console.log(values);
+          
             const missing = formData.filter(([k, v]) => v == "")
-            console.log(`missing ${missing}`);
+            // console.log(`missing ${missing}`);
             if (missing.length > 0) {
                 const errors = missing.reduce((a, [k]) => Object.assign(a, { [k]: true }), {})
-                // console.log(errors);
+               
                 throw {
                     error: new Error('All field are required!'),
                     errors
                 }
             }
             const data = await editItem(id,values)
-    
-            console.log(data?._id);
-            console.log(`data ${data}`);
-            console.log(values);
             navigate(`/catalog/${data._id}/details`)
         } catch (error) {
             // console.log(error.errors);
