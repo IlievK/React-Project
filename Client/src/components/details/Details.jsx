@@ -17,6 +17,10 @@ export default function Details() {
   }, [])
   const isOwner = item._ownerId === userId
 
+  const deleteHandler = ()=>{
+    console.log('delete');
+    
+  }
   return (
     <>
       <section id={styles['detailsPage']}>
@@ -45,7 +49,7 @@ export default function Details() {
               <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
                 Edit
               </Link>
-              <Link to="#" className={styles['delete-btn']}>
+              <Link to="#" className={styles['delete-btn']} onClick={deleteHandler}>
                 Delete
               </Link></>
             }
