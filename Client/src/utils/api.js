@@ -14,7 +14,7 @@ async function request(method, url, data) {
     const user = JSON.parse(localStorage.getItem("user"));
 
     // TO DO ACCESSTOKEN /   USER
-
+    console.log(user);
     if (user) {
         options.headers["X-Authorization"] = user.accessToken;
     }

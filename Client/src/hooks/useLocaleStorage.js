@@ -16,8 +16,12 @@ const [state, setState] = useState(()=>{
 
 
     const setLocaleStorage = (value) =>{
-        setState(value)
-        localStorage.setItem(key, JSON.stringify(value))
+       
+        if(value){
+
+            setState(value)
+            localStorage.setItem(key, JSON.stringify(value))
+        }
     }
 
     return[

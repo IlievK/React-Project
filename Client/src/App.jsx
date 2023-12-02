@@ -19,7 +19,7 @@ import { useLocaleStorage } from './hooks/useLocaleStorage.js';
 
 function App() {
     const key = 'user'
-    const [auth, setAuth] = useLocaleStorage(key,{})
+    const [auth, setAuth] = useLocaleStorage(key,null)
     const navigate = useNavigate()
     //  const [count, setCount] = useState(0)
     const onLoginSubmitHandler = async (values) => {
@@ -29,7 +29,7 @@ function App() {
             const user = await login({...values})
          
             console.log(`user: ${user.accessToken}`);
-          
+            setAuth(user)
             navigate('/catalog')
         } catch (error) {
             console.log(error);
@@ -61,6 +61,7 @@ function App() {
     const logAutHandler = ()=>{
         
         setAuth({})
+        localStorage.removeItem(key)
     }
 
     const context = {
