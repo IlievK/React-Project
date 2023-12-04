@@ -44,28 +44,28 @@ export default function Details() {
           </div>
           <>
           {/* Bonus ( for Guests and Users ) */}
-          <div className={styles['details-comments']}>
-            <h2>Comments:</h2>
+          <div className={styles['detailsPage']}>
+            <h1>Comments:</h1>
             <ul>
               {/* list all comments for current game (If any) */}
-              <li className={styles['comment']}>
+              <li className={styles['info']}>
                 <p>Content: I rate this one quite highly.</p>
               </li>
-              <li className={styles['comment']}>
+              <li className={styles['info']}>
                 <p>Content: The best game.</p>
               </li>
-              <li className={styles['comment']}>
+              <li className={styles['info']}>
                 <p>Content: The best game.</p>
               </li>
-              <li className={styles['comment']}>
+              <li className={styles['info']}>
                 <p>Content: The best game.</p>
               </li>
-              <li className={styles['comment']}>
+              <li className={styles['info']}>
                 <p>Content: The best game.</p>
               </li>
             </ul>
             {/* Display paragraph: If there are no games in the database */}
-            <p className="no-comment">No comments.</p>
+            <p className={styles['info']}>No comments.</p>
           </div>
         </>
           {hasUser && <div className={styles['buttons']}>
@@ -100,9 +100,10 @@ export default function Details() {
           {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
           <article className={styles['create-comment']}>
             <label>Add new comment:</label>
-            <form className="form">
-              <textarea name="comment" placeholder="Comment......" defaultValue={""} />
-              <input className="btn submit" type="submit" defaultValue="Add Comment" />
+            <form id={styles['detailsPage']}>
+              <textarea name="comment" placeholder="Comment......" value={""} />
+              <input className={styles['edit-btn']} type="submit" value="Add Comment" />
+              {/* <button className={styles['edit-btn']}  type="submit" >Add Comment</button> */}
             </form>
           </article>
         </>
