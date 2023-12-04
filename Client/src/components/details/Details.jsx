@@ -7,6 +7,7 @@ import { AuthContext } from "../../contexts/AuthContex"
 
 
 export default function Details() {
+  const [comments, setComments] = useState([])
   const { id } = useParams()
   const [item, setItem] = useState({})
   const { userId, hasUser } = useContext(AuthContext)
@@ -46,7 +47,7 @@ export default function Details() {
           {/* Bonus ( for Guests and Users ) */}
           <div className={styles['detailsPage']}>
             <h1>Comments:</h1>
-            <ul>
+            {comments.length > 0 && <ul>
               {/* list all comments for current game (If any) */}
               <li className={styles['info']}>
                 <p>Content: I rate this one quite highly.</p>
@@ -63,9 +64,10 @@ export default function Details() {
               <li className={styles['info']}>
                 <p>Content: The best game.</p>
               </li>
-            </ul>
-            {/* Display paragraph: If there are no games in the database */}
-            <h2 className={styles['info']}>No comments.</h2>
+            </ul>}
+            {comments.length === 0 && 
+            <h2 className={styles['info']}>No comments.</h2>}
+            
           </div>
         </>
           {hasUser && <div className={styles['buttons']}>
