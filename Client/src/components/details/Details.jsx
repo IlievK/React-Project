@@ -19,7 +19,7 @@ export default function Details() {
   }, [])
   const isOwner = item._ownerId === userId
 
-  const deleteHandler = ()=>{
+  const deleteHandler = () => {
     console.log('delete');
 
     // navigate('/')
@@ -40,8 +40,34 @@ export default function Details() {
               Description: {item.description}
             </h3>
             <h2>Price: ${item.price}</h2>
-            
+
           </div>
+          <>
+          {/* Bonus ( for Guests and Users ) */}
+          <div className={styles['details-comments']}>
+            <h2>Comments:</h2>
+            <ul>
+              {/* list all comments for current game (If any) */}
+              <li className={styles['comment']}>
+                <p>Content: I rate this one quite highly.</p>
+              </li>
+              <li className={styles['comment']}>
+                <p>Content: The best game.</p>
+              </li>
+              <li className={styles['comment']}>
+                <p>Content: The best game.</p>
+              </li>
+              <li className={styles['comment']}>
+                <p>Content: The best game.</p>
+              </li>
+              <li className={styles['comment']}>
+                <p>Content: The best game.</p>
+              </li>
+            </ul>
+            {/* Display paragraph: If there are no games in the database */}
+            <p className="no-comment">No comments.</p>
+          </div>
+        </>
           {hasUser && <div className={styles['buttons']}>
             {!isOwner &&
               <a href="#" className={styles['buy-btn']}>
@@ -54,7 +80,7 @@ export default function Details() {
               <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
                 Edit
               </Link>
-              </>
+            </>
               <button type='submit' onClick={deleteHandler} className={styles['delete-btn']} >Delete</button></>
             }
             {/*If user is not the owner and is bought this toy*/}
@@ -68,34 +94,18 @@ export default function Details() {
           </div>}
           {/*If there is user logged in*/}
         </div>
-          <>
-  {/* Bonus ( for Guests and Users ) */}
-  <div className="details-comments">
-    <h2>Comments:</h2>
-    <ul>
-      {/* list all comments for current game (If any) */}
-      <li className="comment">
-        <p>Content: I rate this one quite highly.</p>
-      </li>
-      <li className="comment">
-        <p>Content: The best game.</p>
-      </li>
-    </ul>
-    {/* Display paragraph: If there are no games in the database */}
-    <p className="no-comment">No comments.</p>
-  </div>
-</>
-<>
-  {/* Bonus */}
-  {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
-  <article className="create-comment">
-    <label>Add new comment:</label>
-    <form className="form">
-      <textarea name="comment" placeholder="Comment......" defaultValue={""} />
-      <input className="btn submit" type="submit" defaultValue="Add Comment" />
-    </form>
-  </article>
-</>
+       
+        <>
+          {/* Bonus */}
+          {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
+          <article className={styles['create-comment']}>
+            <label>Add new comment:</label>
+            <form className="form">
+              <textarea name="comment" placeholder="Comment......" defaultValue={""} />
+              <input className="btn submit" type="submit" defaultValue="Add Comment" />
+            </form>
+          </article>
+        </>
 
       </section>
 
