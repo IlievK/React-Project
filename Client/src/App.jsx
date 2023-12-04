@@ -19,7 +19,7 @@ import { useLocaleStorage } from './hooks/useLocaleStorage.js';
 
 function App() {
     const key = 'user'
-    const [auth, setAuth] = useLocaleStorage(key,null)
+    const [auth, setAuth] = useLocaleStorage(key,{})
     const navigate = useNavigate()
     //  const [count, setCount] = useState(0)
     const onLoginSubmitHandler = async (values) => {

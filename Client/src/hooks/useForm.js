@@ -15,12 +15,15 @@ export const useForm = (initilValues, submitHandler) =>{
     const changeValues = (newValues) => {
 
         setFormvalues(newValues)
+        
 
     }
     
     const onSubmit = (e) =>{
         e.preventDefault()
         submitHandler(formValues)
+        // TO DO -  check if it's working correctly
+        setFormvalues(initilValues)
     }
 
     return{

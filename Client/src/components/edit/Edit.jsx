@@ -60,7 +60,7 @@ export default function Edit() {
         getOne(id)
             .then(result => changeValues(result))
             .catch( error => console.log(error))
-        },[id])
+        },[])
 
     return (
         <section id={styles['editPage']}>
