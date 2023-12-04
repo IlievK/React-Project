@@ -65,7 +65,7 @@ export default function Details() {
               </li>
             </ul>
             {/* Display paragraph: If there are no games in the database */}
-            <p className={styles['info']}>No comments.</p>
+            <h2 className={styles['info']}>No comments.</h2>
           </div>
         </>
           {hasUser && <div className={styles['buttons']}>
