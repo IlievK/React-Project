@@ -4,6 +4,7 @@ import { getOne } from "../../api/gamesApi"
 import styles from '../details/details.module.css'
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/AuthContex"
+import { useForm } from "../../hooks/useForm"
 
 
 export default function Details() {
@@ -13,19 +14,32 @@ export default function Details() {
   const { userId, hasUser } = useContext(AuthContext)
   const navigate = useNavigate()
 
+  const addCommnetHandler = (values) =>{
+    console.log(values);
+    console.log('ADD comment!');
+  }
+  const CommentForm ={
+    Commnet : 'comment'
+  }
+  const {formValues,onChange, onSubmit, changeValues } = useForm({
+    [CommentForm.Commnet] : ""
+  }, addCommnetHandler)
+  
+  
   useEffect(() => {
     getOne(id)
-      .then(respone => setItem(respone))
-      .catch(error => console.log(error))
+    .then(respone => setItem(respone))
+    .catch(error => console.log(error))
   }, [])
   const isOwner = item._ownerId === userId
-
+  
   const deleteHandler = () => {
     console.log('delete');
-
+    
     // navigate('/')
-
+    
   }
+  
   return (
     <>
       <section id={styles['detailsPage']}>
@@ -51,25 +65,10 @@ export default function Details() {
             <h1>Comments:</h1>
             {comments.length > 0 && <ul>
               {/* list all comments for current game (If any) */}
-              <li className={styles['info']}>
-                <p>Content: I rate this one quite highly.</p>
-              </li>
-              <li className={styles['info']}>
-                <p>Content: The best game.</p>
-              </li>
-              <li className={styles['info']}>
-                <p>Content: The best game.</p>
-              </li>
-              <li className={styles['info']}>
-                <p>Content: The best game.</p>
-              </li>
-              <li className={styles['info']}>
-                <p>Content: The best game.</p>
-              </li>
+              {/* <Comment /> */}
             </ul>}
             {comments.length === 0 && 
-            <h2 className={styles['info']}>No comments.</h2>}
-            
+            <h2 className={styles['info']}>No comments.</h2>} 
           </div>
         </>
           {hasUser && <div className={styles['buttons']}>
@@ -77,7 +76,6 @@ export default function Details() {
               <a href="#" className={styles['buy-btn']}>
                 Buy
               </a>}
-
 
             {/*If user is owner*/}
             {isOwner && <><>
@@ -87,25 +85,24 @@ export default function Details() {
             </>
               <button type='submit' onClick={deleteHandler} className={styles['delete-btn']} >Delete</button></>
             }
-            {/*If user is not the owner and is bought this toy*/}
-
             {!isOwner && <p>
               <span className={styles['buy']}>Thank You For Your Purchase</span>
             </p>
             }
-
-
           </div>}
           {/*If there is user logged in*/}
         </div>
-       
         <>
-          {/* Bonus */}
           {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
           <article className={styles['create-comment']}>
             <label>Add new comment:</label>
-            <form id={styles['detailsPage']}>
-              <textarea name="comment" placeholder="Comment......" value={""} />
+            <form id={styles['detailsPage']} onSubmit={onSubmit}>
+              <textarea
+              onChange={onChange}
+              name="comment"
+              placeholder="Comment......"
+              value={formValues[CommentForm.Commnet]}
+              />
               <input className={styles['edit-btn']} type="submit" value="Add Comment" />
               {/* <button className={styles['edit-btn']}  type="submit" >Add Comment</button> */}
             </form>
