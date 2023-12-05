@@ -27,8 +27,7 @@ export default function Edit() {
             const data = await editItem(id,values)
             navigate(`/catalog/${data._id}/details`)
         } catch (error) {
-            // console.log(error.errors);
-            // console.log(error.error);
+           
             console.log(error);
             alert(error)
             // console.log(`Errors: ${error}`);

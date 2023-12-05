@@ -5,7 +5,7 @@ import styles from '../details/details.module.css'
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/AuthContex"
 import { useForm } from "../../hooks/useForm"
-
+import Comment from "./comments/Comment"
 
 export default function Details() {
   const [comments, setComments] = useState([1,2])
@@ -65,7 +65,7 @@ export default function Details() {
             <h1>Comments:</h1>
             {comments.length > 0 && <ul>
               {/* list all comments for current game (If any) */}
-              {/* <Comment /> */}
+             {comments.map(comment => <Comment key={123 + Math.random()} {...comment} />)} 
             </ul>}
             {comments.length === 0 && 
             <h2 className={styles['info']}>No comments.</h2>} 
