@@ -31,7 +31,6 @@ async function request(method, url, data) {
             throw new Error(error.message);
         }
         // TO DO - to be checked if it's working for logout!
-
         return await response.json();
     } catch (error) {
         // alert(error.message);

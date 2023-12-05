@@ -22,7 +22,7 @@ const endpoints = {
   // }
   
   export async function createOne(data){
-    api.post(endpoints.create,(data))
+    return api.post(endpoints.create,(data))
   }
   export async function editItem(id,data){
     return api.put(endpoints.edit + id,(data))

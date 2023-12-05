@@ -4,20 +4,23 @@ import { getOne } from "../../api/gamesApi"
 import styles from '../details/details.module.css'
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/AuthContex"
-import { useForm } from "../../hooks/useForm"
+
 import Comment from "./comments/Comment"
 import AddComment from "./addcomment/AddComment"
+import * as commentServices from '../../api/commentsApi'
+
 
 export default function Details() {
-  const [comments, setComments] = useState([1,2,3])
+  const [comments, setComments] = useState([])
   const { id } = useParams()
   const [item, setItem] = useState({})
   const { userId, hasUser } = useContext(AuthContext)
   const navigate = useNavigate()
 
-  const addCommnetHandler = (values) =>{
+  const addCommnetHandler = async (values) =>{
+    const data = await commentServices.createOne(values)
     console.log(values);
-    console.log('ADD comment!');
+    console.log(`data result ${Object.entries(data)}`);
   }
   
   useEffect(() => {
