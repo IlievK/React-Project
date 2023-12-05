@@ -7,7 +7,7 @@ import { AuthContext } from "../../contexts/AuthContex"
 
 
 export default function Details() {
-  const [comments, setComments] = useState([])
+  const [comments, setComments] = useState([1,2])
   const { id } = useParams()
   const [item, setItem] = useState({})
   const { userId, hasUser } = useContext(AuthContext)
@@ -37,7 +37,9 @@ export default function Details() {
           <div className={styles['info']}>
             <h3>Type: {item.type}</h3>
             <h3>Year of Production: {item.production}</h3>
-            <h3>
+            <label htmlFor="">Description</label>
+            {/* TO DO - CSS to be fixed */}
+            <h3 id={styles['descriptioDetail']}>
               Description: {item.description}
             </h3>
             <h2>Price: ${item.price}</h2>

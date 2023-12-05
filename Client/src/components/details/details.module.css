@@ -22,7 +22,7 @@
 
 #detailsInfo h2 {
     font-size: 26px;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 #detailsInfo h3 {
@@ -44,7 +44,7 @@
 .info img {
   width: 50%;
   height: 50%;
-  margin-top: 25px;
+  margin-top: 10px;
   border-radius: 10%;
 }
 
@@ -65,16 +65,16 @@
 }
 
 .buttons p span {
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   font-size: 20px;
 }
 
 .buttons a {
   color: black;
-  margin-top: 5%;
-  margin-bottom: 5%;
-  margin-left: 5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 1%;
   width: 40%;
   font-size: 20px;
   background-color: white;
@@ -85,8 +85,8 @@
 
 .delete-btn {
   color: black;
-  margin-top: 5%;
-  margin-bottom: 5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   /* width: 10%; */
   font-size: 20px;
   background-color: white;
@@ -97,7 +97,20 @@
   cursor: pointer
   
 }
-
+#detailsPage label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+#descriptioDetail {
+  display: inline-block;
+  /* margin-top: 10px;
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold; */
+}
 /* comment section css */
 create-comment>.form>textarea {
     resize: none;
