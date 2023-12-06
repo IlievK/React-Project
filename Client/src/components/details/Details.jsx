@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
-import { getOne } from "../../api/gamesApi"
+import { deleteItem, getOne } from "../../api/gamesApi"
 import styles from '../details/details.module.css'
 import { useContext } from "react"
 import { AuthContext } from "../../contexts/AuthContex"
@@ -18,22 +18,42 @@ export default function Details() {
   const navigate = useNavigate()
 
   const addCommnetHandler = async (values) =>{
-    const data = await commentServices.createOne(values)
-    console.log(values);
-    console.log(`data result ${Object.entries(data)}`);
+    const data = await commentServices.createOne(id,values.comment)
+     console.log(data);
+    setComments(state => ([...state,data]))
+    
   }
   
   useEffect(() => {
-    getOne(id)
-    .then(respone => setItem(respone))
+    Promise.all([
+      getOne(id),
+      commentServices.getAllComments(id)
+    ])
+    .then(([respones, comments]) => {
+      setItem(respones)
+      setComments(comments)
+    })
     .catch(error => console.log(error))
-  }, [])
+  }, [id])
   const isOwner = item._ownerId === userId
   
-  const deleteHandler = () => {
-    console.log('delete');
-    // navigate('/')
+  const deleteHandler = async () => {
     
+
+    try {
+      
+      // await commentServices.deleteItem(item._id)
+    const comment = await deleteItem(item?._id)
+    // console.log(comment);
+      navigate('/catalog')
+    } catch (error) {
+      console.log(error);
+    }
+
+    
+  }
+  const onFavoriteHandler = () =>{
+    console.log('favorite');
   }
   
   return (
@@ -60,7 +80,7 @@ export default function Details() {
             <h1>Comments:</h1>
             {comments.length > 0 && <ul>
               {/* list all comments for current game (If any) */}
-             {comments.map(comment => <Comment key={123 + Math.random()} {...comment} />)} 
+             {comments.map(comment => <Comment key={comment._id} {...comment} />)} 
             </ul>}
             {comments.length === 0 && 
             <h2 className={styles['info']}>No comments.</h2>} 
@@ -68,7 +88,7 @@ export default function Details() {
         </>
           {hasUser && <div className={styles['buttons']}>
 
-            {!isOwner && <a href="#" className={styles['buy-btn']}>Buy </a>}
+            {!isOwner && <button onClick={onFavoriteHandler} className={styles['delete-btn']}>Favorite </button>}
             {/*If user is owner*/}
             {isOwner && <><>
               <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
@@ -77,10 +97,10 @@ export default function Details() {
             </>
               <button type='submit' onClick={deleteHandler} className={styles['delete-btn']} >Delete</button></>
             }
-            {!isOwner && <p>
-              <span className={styles['buy']}>Thank You For Your Purchase</span>
+            {/* {!isOwner && <p>
+              <span className={styles['buy']}>In my Favorite</span>
             </p>
-            }
+            } */}
           </div>}
           {/*If there is user logged in*/}
         </div>

@@ -1,8 +1,8 @@
 import styles from '../../details/details.module.css'
-export default function Comment ({comment}){
+export default function Comment ({data}){
     return(
         <li className={styles['info']}>
-                <p>Content: I rate this one quite highly.</p>
+                <p>Comment:{data}</p>
               </li>
     )
 }

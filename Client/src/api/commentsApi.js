@@ -3,7 +3,7 @@ import * as api from "../utils/api.js";
 const endpoints = {
     allItems: "/data/comments",
     getOneById: "/data/comments/",
-    myItems: (userId) => `/data/comments?where=_ownerId%3D%22${userId}%22`,
+    allComments: (id) => `/data/comments?where=id%3D%22${id}%22`,
     create: "/data/comments",
     edit: "/data/comments/",
     delete: "/data/comments/"
@@ -17,19 +17,22 @@ const endpoints = {
     return api.get(endpoints.getOneById + id);
   }
   
-  // export async function getMyItems(userId){
-  //   api.get(endpoints.myItems(userId))
-  // }
+  export async function getAllComments(id){
+   
+    const result = await api.get(endpoints.allComments(id))
+    console.log(result);
+    return result
+  }
   
-  export async function createOne(data){
-    return api.post(endpoints.create,(data))
+  export async function createOne( id, data){
+    return api.post(endpoints.create,({id,data}))
   }
   export async function editItem(id,data){
     return api.put(endpoints.edit + id,(data))
   
   }
   
-  export async function deleteItem(id,){
-    api.del(endpoints.delete + id,)
+  export async function deleteItem(id){
+    api.del(endpoints.delete + id)
   
   }

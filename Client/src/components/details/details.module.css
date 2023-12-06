@@ -35,6 +35,7 @@
   color: white;
   letter-spacing: 1px;
   display: inline-block;
+  width: auto;
 }
 
 /* .info img {
@@ -124,7 +125,14 @@ create-comment>.form>textarea {
 .details-comments {
     display: table-cell;
 }
+.create-comment textarea{
+  background: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  font-size: 16px;
+  width: auto;
 
+}
 .create-comment {
     margin-top: 60px;
     position: relative;
@@ -138,6 +146,7 @@ create-comment>.form>textarea {
     box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21;
     display: inline-block;
 }
+
 
 .create-comment>label {
     color: white;
@@ -169,3 +178,4 @@ create-comment>.form>textarea {
     color: white;
     cursor: pointer;
 }
+

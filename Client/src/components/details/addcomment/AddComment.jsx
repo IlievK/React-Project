@@ -20,7 +20,7 @@ export default function AddComment({addCommnetHandler}){
               name="comment"
               placeholder="Comment......"
               value={formValues[CommentForm.Commnet]}
-              />
+              ></textarea>
               <input className={styles['edit-btn']} type="submit" value="Add Comment" />
               {/* <button className={styles['edit-btn']}  type="submit" >Add Comment</button> */}
             </form>
