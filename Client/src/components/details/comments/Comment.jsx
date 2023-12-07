@@ -6,7 +6,7 @@ export default function Comment({ data }, isOwner) {
             <li className={styles['info']}>
                 <p>Comment:{data}</p>
             </li>
-            {!isOwner && <button onClick={onFavoriteHandler} className={styles['delete-btn']}>Favorite </button>}
+            {/* <button  className={styles['delete-btn']}>edit </button> */}
         </>
     )
 }
