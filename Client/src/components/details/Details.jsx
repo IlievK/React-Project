@@ -80,7 +80,7 @@ export default function Details() {
             <h1>Comments:</h1>
             {comments.length > 0 && <ul>
               {/* list all comments for current game (If any) */}
-             {comments.map(comment => <Comment key={comment._id} {...comment} />)} 
+             {comments.map(comment => <Comment key={comment._id} isOwner={isOwner} {...comment} />)} 
             </ul>}
             {comments.length === 0 && 
             <h2 className={styles['info']}>No comments.</h2>} 

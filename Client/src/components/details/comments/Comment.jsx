@@ -1,8 +1,12 @@
 import styles from '../../details/details.module.css'
-export default function Comment ({data}){
-    return(
-        <li className={styles['info']}>
+export default function Comment({ data }, isOwner) {
+    return (
+        <>
+
+            <li className={styles['info']}>
                 <p>Comment:{data}</p>
-              </li>
+            </li>
+            {!isOwner && <button onClick={onFavoriteHandler} className={styles['delete-btn']}>Favorite </button>}
+        </>
     )
 }
