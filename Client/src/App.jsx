@@ -13,6 +13,7 @@ import Register from './components/register/Register.jsx'
 import Create from './components/create/Create.jsx'
 import Logout from './components/logout/Logout.jsx'
 import Profile from './components/profile/Profile.jsx';
+import { HasUser } from './components/common/HasUser.jsx';
 
 
 
@@ -23,14 +24,17 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route element={<HasUser />}>
+
                 <Route path='/profile' element={<Profile />} />
+                <Route path='/data/create' element={<Create  />} />
+                <Route path='/logout' element={<Logout />} />
+                <Route path='/catalog/:id/edit' element={<Edit />} />
+                </Route>
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/auth/login' element={<Login />} />
                 <Route path='/auth/register' element={<Register/>} />
-                <Route path='/data/create' element={<Create  />} />
-                <Route path='/logout' element={<Logout />} />
                 <Route path='/catalog/:id/details' element={<Details />} />
-                <Route path='/catalog/:id/edit' element={<Edit />} />
             </Routes>
             <Footer />
             </AuthProvider >
