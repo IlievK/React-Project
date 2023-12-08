@@ -29,7 +29,7 @@ export default function Navigation() {
             <Link to={"/logout"}>Logout</Link>
           </li>
             <li>
-            <Link to={"/profile"}>Profile{username}</Link>
+            <Link to={"/profile"}>Profile, {username}</Link>
               </li>
             
           </>
