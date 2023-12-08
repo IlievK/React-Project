@@ -13,11 +13,11 @@ export default function Details() {
   const [comments, setComments] = useState([])
   const { id } = useParams()
   const [item, setItem] = useState({})
-  const { userId, hasUser,userEmail } = useAuthContext()
+  const { userId, hasUser, username } = useAuthContext()
   const navigate = useNavigate()
   
   const addCommnetHandler = async (values) =>{
-    const data = await commentServices.createOne(id,values.comment,userEmail)
+    const data = await commentServices.createOne(id,values.comment, username)
      console.log(data);
      console.log(userId)
     setComments(state => ([...state,data]))
