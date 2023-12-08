@@ -2,8 +2,7 @@ import { useEffect, useState } from "react"
 import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
 import { deleteItem, getOne } from "../../api/gamesApi"
 import styles from '../details/details.module.css'
-import { useContext } from "react"
-import { AuthContext } from "../../contexts/AuthContex"
+import {  useAuthContext } from "../../contexts/AuthContex"
 
 import Comment from "./comments/Comment"
 import AddComment from "./addcomment/AddComment"
@@ -14,7 +13,7 @@ export default function Details() {
   const [comments, setComments] = useState([])
   const { id } = useParams()
   const [item, setItem] = useState({})
-  const { userId, hasUser } = useContext(AuthContext)
+  const { userId, hasUser } = useAuthContext()
   const navigate = useNavigate()
   
   const addCommnetHandler = async (values) =>{
@@ -40,11 +39,10 @@ export default function Details() {
   
   const deleteHandler = async () => {
     
-
     try {
       
       // await commentServices.deleteItem(item._id)
-    const comment = await deleteItem(item?._id)
+     await deleteItem(item?._id)
     // console.log(comment);
       navigate('/catalog')
     } catch (error) {

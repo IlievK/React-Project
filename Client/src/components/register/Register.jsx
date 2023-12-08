@@ -1,14 +1,15 @@
 import { Link } from 'react-router-dom'
 import styles from '../register/register.module.css'
 import { useForm } from '../../hooks/useForm'
+import { useAuthContext } from '../../contexts/AuthContex'
 const RegisterForm = {
     Email: 'email',
     Username: 'username',
     Password: 'password',
     RepearPassword: 'rePassword'
 }
-export default function Register({onRegisterSubmitHandler}) {
-
+export default function Register() {
+const {onRegisterSubmitHandler} = useAuthContext()
     const {formValues, onChange, onSubmit} = useForm(
         {
         [RegisterForm.Email]:'',
