@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuthContext } from '../../contexts/AuthContex'
 
 export default function Navigation() {
-  const {hasUser} = useAuthContext()
+  const {hasUser,username} = useAuthContext()
   return (
 
     
@@ -24,10 +24,16 @@ export default function Navigation() {
         </li>
            {/* <li>
           //   <Link to={{">Search}}</Link>
-          // </li> */}
+        // </li> */}
           <li>
             <Link to={"/logout"}>Logout</Link>
-          </li></> : <><li>
+          </li>
+            <li>
+            <Link to={"/profile"}>Profile{username}</Link>
+              </li>
+            
+          </>
+           : <><li>
             <Link to={"/auth/login"}>Login</Link>
           </li><li>
               <Link to={"/auth/register"}>Register</Link>

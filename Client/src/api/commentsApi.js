@@ -24,8 +24,8 @@ const endpoints = {
     return result
   }
   
-  export async function createOne( id, data){
-    return api.post(endpoints.create,({id,data}))
+  export async function createOne( id, data,userEmail){
+    return api.post(endpoints.create,({id,data,userEmail}))
   }
   export async function editItem(id,data){
     return api.put(endpoints.edit + id,(data))

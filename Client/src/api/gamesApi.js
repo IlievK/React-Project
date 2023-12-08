@@ -3,7 +3,7 @@ import * as api from "../utils/api.js";
 const endpoints = {
   allItems: "/data/games",
   getOneById: "/data/games/",
-  myItems: (userId) => `/data/catalog?where=_ownerId%3D%22${userId}%22`,
+  myItems: (userId) => `/data/games?where=_ownerId%3D%22${userId}%22`,
   create: "/data/games",
   edit: "/data/games/",
   delete: "/data/games/"
@@ -17,9 +17,9 @@ export async function getOne(id) {
   return api.get(endpoints.getOneById + id);
 }
 
-// export async function getMyItems(userId){
-//   api.get(endpoints.myItems(userId))
-// }
+export async function getMyItems(userId){
+  return api.get(endpoints.myItems(userId))
+}
 
 export async function createOne(data){
   api.post(endpoints.create,(data))

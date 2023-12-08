@@ -12,6 +12,7 @@ import Login from './components/login/Login.jsx'
 import Register from './components/register/Register.jsx'
 import Create from './components/create/Create.jsx'
 import Logout from './components/logout/Logout.jsx'
+import Profile from './components/profile/Profile.jsx';
 
 
 
@@ -22,6 +23,7 @@ function App() {
             <Navigation />
             <Routes>
                 <Route path='/' element={<Home />} />
+                <Route path='/profile' element={<Profile />} />
                 <Route path='/catalog' element={<Catalog />} />
                 <Route path='/auth/login' element={<Login />} />
                 <Route path='/auth/register' element={<Register/>} />

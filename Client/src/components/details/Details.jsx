@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import { deleteItem, getOne } from "../../api/gamesApi"
 import styles from '../details/details.module.css'
 import {  useAuthContext } from "../../contexts/AuthContex"
@@ -13,11 +13,11 @@ export default function Details() {
   const [comments, setComments] = useState([])
   const { id } = useParams()
   const [item, setItem] = useState({})
-  const { userId, hasUser } = useAuthContext()
+  const { userId, hasUser,userEmail } = useAuthContext()
   const navigate = useNavigate()
   
   const addCommnetHandler = async (values) =>{
-    const data = await commentServices.createOne(id,values.comment)
+    const data = await commentServices.createOne(id,values.comment,userEmail)
      console.log(data);
      console.log(userId)
     setComments(state => ([...state,data]))
@@ -87,6 +87,7 @@ export default function Details() {
         </>
           {hasUser && <div className={styles['buttons']}>
 
+              {/* //To be completed */}
             {!isOwner && <button onClick={onFavoriteHandler} className={styles['delete-btn']}>Favorite </button>}
             {/*If user is owner*/}
             {isOwner && <><>

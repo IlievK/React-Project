@@ -62,6 +62,7 @@ export const AuthProvider = ({
         userEmail : auth.email,
         userToken: auth.accessToken,
         hasUser: !!auth.accessToken,
+        username: auth.username,
         logAutHandler,
         onRegisterSubmitHandler,
         onLoginSubmitHandler
