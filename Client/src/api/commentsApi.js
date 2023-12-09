@@ -20,7 +20,7 @@ const endpoints = {
   export async function getAllComments(id){
    
     const result = await api.get(endpoints.allComments(id))
-    console.log(result);
+    // console.log(result);
     return result
   }
   

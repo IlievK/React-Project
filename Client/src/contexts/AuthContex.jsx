@@ -21,7 +21,7 @@ export const AuthProvider = ({
             
             const user = await login({...values})
          
-            console.log(`user: ${user.accessToken}`);
+            // console.log(`user: ${user.accessToken}`);
             setAuth(user)
             navigate('/catalog')
         } catch (error) {

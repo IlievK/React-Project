@@ -71,23 +71,23 @@ export default function Create() {
                     
                     />
                    
-                <label htmlFor="type">Type:</label>
+                <label htmlFor="type">Genre:</label>
                 <input
                     onChange={onChange}
                     type="text"
                     id="type"
                     // name={CreateForm.Type}
                     name={CreateForm.Type}
-                    placeholder="Type..."
+                    placeholder="Genre..."
                     value={formValues[CreateForm.Type]}
                 />
-                <label htmlFor="production">Year of Production:</label>
+                <label htmlFor="production">Date of creation:</label>
                 <input
                     onChange={onChange}
                     type="number"
                     id="production"
                     name={CreateForm.Production}
-                    placeholder="Year of Production..."
+                    placeholder="Date of creation..."
                     value={formValues[CreateForm.Production]}
                 />
                 <label htmlFor="image">Image:</label>

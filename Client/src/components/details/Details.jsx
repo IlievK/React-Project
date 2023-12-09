@@ -64,8 +64,8 @@ export default function Details() {
             <img src={item.image} />
           </div>
           <div className={styles['info']}>
-            <h3>Type: {item.type}</h3>
-            <h3>Year of Production: {item.production}</h3>
+            <h3>Genre: {item.type}</h3>
+            <h3>Date of creation: {item.production}</h3>
             <h3 htmlFor="">Description:</h3>
             {/* TO DO - CSS to be fixed */}
             <h3 id={styles['descriptioDetail']}>

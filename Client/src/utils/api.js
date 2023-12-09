@@ -2,7 +2,7 @@ const host = process.env.NODE_ENV === "development"
 ? "http://localhost:3030"
 : "http://localhost:3031" ; // Deployment host
 
-console.log(process.env.NODE_ENV);
+// console.log(process.env.NODE_ENV);
 async function request(method, url, data) {
     const options = {
         method,
