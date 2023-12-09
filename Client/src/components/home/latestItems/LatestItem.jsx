@@ -4,7 +4,6 @@ export default function LatestItem({
     name,
     image,
     price,
-    description,
     _id
 }) {
     return (
