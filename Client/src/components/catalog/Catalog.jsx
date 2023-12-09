@@ -10,9 +10,7 @@ export default function Catalog() {
   useEffect(()=>{
     getAll()
     .then(res => setItems(Object.values(res)))
-    
     .catch(error=>console.log(error))
-
   },[])
   // console.log(items);
 
