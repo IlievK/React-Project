@@ -14,6 +14,7 @@ import Create from './components/create/Create.jsx'
 import Logout from './components/logout/Logout.jsx'
 import Profile from './components/profile/Profile.jsx';
 import { HasUser } from './components/common/HasUser.jsx';
+import Error from './components/404/404.jsx';
 
 
 
@@ -35,6 +36,7 @@ function App() {
                 <Route path='/auth/login' element={<Login />} />
                 <Route path='/auth/register' element={<Register/>} />
                 <Route path='/catalog/:id/details' element={<Details />} />
+                <Route path='*' element={<Error />} />
             </Routes>
             <Footer />
             </AuthProvider >
