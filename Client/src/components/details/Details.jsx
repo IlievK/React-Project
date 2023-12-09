@@ -18,8 +18,8 @@ export default function Details() {
   
   const addCommnetHandler = async (values) =>{
     const data = await commentServices.createOne(id,values.comment, username)
-     console.log(data);
-     console.log(userId)
+    //  console.log(data);
+    //  console.log(userId)
     setComments(state => ([...state,data]))
     
   }
