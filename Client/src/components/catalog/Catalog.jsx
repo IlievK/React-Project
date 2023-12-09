@@ -5,6 +5,7 @@ import { getAll } from '../../api/gamesApi.js'
 import Item from '../item/Item.jsx'
 
 export default function Catalog() {
+  const [items, setItems] = useState([])
 
   useEffect(()=>{
     getAll()
@@ -13,7 +14,6 @@ export default function Catalog() {
     .catch(error=>console.log(error))
 
   },[])
-  const [items, setItems] = useState([])
   // console.log(items);
 
   return (
@@ -21,7 +21,7 @@ export default function Catalog() {
     <>
 
       <section id={styles['viewCatalog']} className={styles['background-img']}>
-         { items.length > 0  && <div className={styles['added-electronics']}>
+         { items.length > 0  && <div className={styles['added-games']}>
           { items.map( item => <Item key={item._id} {...item}/>)}
             </div> }
         {

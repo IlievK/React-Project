@@ -21,7 +21,7 @@ const {userId} = useAuthContext()
         <>
 
         <section id={styles['viewCatalog']} className={styles['background-img']}>
-           { items.length > 0  && <div className={styles['added-electronics']}>
+           { items.length > 0  && <div className={styles['added-games']}>
             { items.map( item => <Item key={item._id} {...item}/>)}
               </div> }
           {
