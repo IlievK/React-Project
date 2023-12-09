@@ -119,15 +119,7 @@ export default function Create() {
                 placeholder="Description..."
                 value={formValues[CreateForm.Description]}
                 ></textarea>
-                
-
-               {/* <input
-                    onChange={onChange}
-                    type="text"
-                    id="description"
-                    name=""
-                    placeholder="Description..."
-                /> */}
+              
                 <input type="submit" className={styles['create']} value="Create Game" />
             </form>
         </section>

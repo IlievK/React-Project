@@ -74,11 +74,11 @@ export default function Details() {
             <h2>Price: ${item.price}</h2>
           </div>
           <>
-          {/* Bonus ( for Guests and Users ) */}
+          
           <div className={styles['detailsPage']}>
             <h1>Comments:</h1>
             {comments.length > 0 && <ul>
-              {/* list all comments for current game (If any) */}
+             
              {comments.map(comment => <Comment key={comment._id} isOwner={isOwner} {...comment} />)} 
             </ul>}
             {comments.length === 0 && 
@@ -88,8 +88,8 @@ export default function Details() {
           {hasUser && <div className={styles['buttons']}>
 
               {/* //To be completed */}
-            {/* {!isOwner && <button onClick={onFavoriteHandler} className={styles['delete-btn']}>Favorite </button>} */}
-            {/*If user is owner*/}
+            {/* {!isOwner && <button onClick={onFavoriteHandler} className={styles['delete-btn']}>Favorite </button>}   */}
+           
             {isOwner && <><>
               <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
                 Edit
@@ -97,12 +97,9 @@ export default function Details() {
             </>
               <button type='submit' onClick={deleteHandler} className={styles['delete-btn']} >Delete</button></>
             }
-            {/* {!isOwner && <p>
-              <span className={styles['buy']}>In my Favorite</span>
-            </p>
-            } */}
+            
           </div>}
-          {/*If there is user logged in*/}
+         
         </div>
         {hasUser && !isOwner && <AddComment addCommnetHandler={addCommnetHandler} />}
       </section>

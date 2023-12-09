@@ -2,8 +2,7 @@ import  { Link}  from "react-router-dom"
 import styles from '../catalog/catalog.module.css'
 export default function Item ({
   name,
-  type,
-  production,
+ 
   image,
   price,
   description,

@@ -11,7 +11,7 @@ export default function AddComment({addCommnetHandler}){
   }, addCommnetHandler)
     return(
         <>
-          {/* Add Comment ( Only for logged-in users, which is not creators of the current game ) */}
+        
           <article className={styles['create-comment']}>
             <label>Add new comment:</label>
             <form id={styles['detailsPage']} onSubmit={onSubmit}>
