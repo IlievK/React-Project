@@ -5,6 +5,7 @@ import { getAll } from '../../api/gamesApi.js'
 import Item from '../item/Item.jsx'
 
 export default function Catalog() {
+  
   const [items, setItems] = useState([])
 
   useEffect(()=>{
