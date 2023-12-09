@@ -88,7 +88,7 @@ export default function Details() {
           {hasUser && <div className={styles['buttons']}>
 
               {/* //To be completed */}
-            {!isOwner && <button onClick={onFavoriteHandler} className={styles['delete-btn']}>Favorite </button>}
+            {/* {!isOwner && <button onClick={onFavoriteHandler} className={styles['delete-btn']}>Favorite </button>} */}
             {/*If user is owner*/}
             {isOwner && <><>
               <Link to={`/catalog/${item._id}/edit`} className={styles['edit-btn']}>
